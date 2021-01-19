@@ -49,8 +49,8 @@ class GymMembersController extends Controller
 
 
     }
-    public function destroy(Members $members){
-        $members->delete();
+    public function destroy($members){
+        Members::destroy($members);
         return redirect()->route('members.index')->with('success', 'profile Deleted succesfully!!');
     }
 
