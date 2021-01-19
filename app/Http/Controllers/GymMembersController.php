@@ -26,8 +26,14 @@ class GymMembersController extends Controller
         return redirect()->route('members.index')->with('success', 'profile created succesfully!!');
     }
 
-    public function edit(Members $members){
-        return view('members.edit', compact('members'));
+    public function show(Members $member){
+        return view('members.show', compact('member'));
+    }
+
+
+
+    public function edit(Members $member){
+        return view('members.edit', compact('member'));
     }
 
     public function update(Request $request, Members $members){
@@ -43,7 +49,7 @@ class GymMembersController extends Controller
 
     }
     public function destroy(Members $members){
-        $members->Delete();
+        $members->delete();
         return redirect()->route('members.index')->with('success', 'profile Deleted succesfully!!');
     }
 
