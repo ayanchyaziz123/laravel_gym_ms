@@ -3,37 +3,73 @@
 
 
 @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
 
 <div class="container">
-<h1 class="m-5">Edit</h1>
+    <a class="btn btn-danger mt-3" href="{{route('members.index')}}">Go to home</a>
+    <h3 class="mt-3 mb-3">Edit</h3>
     <form action="{{route('members.update', $member->id)}}" method="POST">
-    @csrf
-    @method('PUT')
-        User name :
-        <input type="text" name="user_name" class="form-control" placeholder="ayan123" value="{{$member->user_name}}">
+        @csrf
+        @method('PUT')
+
+       
+
+
+        <div class="row">
+            <div class="col-6">
+                <label>User Name</label>
+                <input type="text" name="user_name" class="form-control" placeholder="ayan123" value="{{$member->user_name}}">
+                <br>
+            </div>
+            <div class="col-6">
+                <label>Date Of Birth</label>
+                <input type="text" name="dob" class="form-control" placeholder="20-20-2002" value="{{$member->dob}}">
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label>First Name</label>
+                <input type="text" name="first_name" class="form-control" placeholder="First Name" value="{{$member->first_name}}">
+                <br>
+            </div>
+            <div class="col-6">
+                <label>Last Name</label>
+                <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="{{$member->last_name}}">
+                <br>
+            </div>
+        </div>
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" placeholder="aaziz9642@gmail.com" value="{{$member->email}}">
         <br>
-        firs name :
-        <input type="text" name="first_name" class="form-control" placeholder="ayan123" value="{{$member->first_name}}">
+
+        <div class="row">
+            <div class="col-6">
+            <label>Mobile</label>
+        <input type="text" name="mobile" class="form-control" placeholder="017******" value="{{$member->mobile}}">
         <br>
-        last name :
-        <input type="text" name="last_name" class="form-control" placeholder="ayan123" value="{{$member->last_name}}">
+            </div>
+            <div class="col-6">
+            <label>Address</label>
+        <input type="text" name="address" class="form-control" placeholder="017******" value="{{$member->address}}">
         <br>
-        mobile :
-        <input type="text" name="mobile" class="form-control" placeholder="ayan123" value="{{$member->mobile}}">
+            </div>
+        </div>
+
+        <label>Fees</label>
+        <input type="text" name="fees" class="form-control" placeholder="017******" value="{{$member->fees}}">
         <br>
-        email :
-        <input type="text" name="email" class="form-control" placeholder="ayan123" value="{{$member->email}}">
-        <br>
+        
         <button class="btn btn-info" type="submit">Update</button>
 
     </form>

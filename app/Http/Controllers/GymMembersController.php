@@ -19,7 +19,8 @@ class GymMembersController extends Controller
         $request->validate([
             'user_name'=> 'required',
             'first_name'=>'required',
-            'email'=>'required'
+            'email'=>'required',
+            'fees'=>'required',
         ]);
         Members::create($request->all());
 
@@ -40,7 +41,7 @@ class GymMembersController extends Controller
         $request->validate([
             'user_name'=> 'required',
             'first_name'=>'required',
-            'email'=>'required'
+            'email'=>'required',
         ]);
         $members->update($request->all());
 
