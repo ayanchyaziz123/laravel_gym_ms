@@ -37,13 +37,14 @@ class GymMembersController extends Controller
         return view('members.edit', compact('member'));
     }
 
-    public function update(Request $request, Members $members){
+    public function update(Request $request, $id){
         $request->validate([
             'user_name'=> 'required',
             'first_name'=>'required',
             'email'=>'required',
         ]);
-        $members->update($request->all());
+        $members = $request -> all();
+        Members::find($id) -> update($members);
 
         return redirect()->route('members.index')->with('success', 'profile Updated succesfully!!');
 
